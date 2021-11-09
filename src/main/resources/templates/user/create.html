@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="/fragments/head :: header"></head>
+
+<body>
+
+<div class="dashboard-main-wrapper">
+
+    <div th:replace="/fragments/header :: header"></div>
+
+    <div th:replace="/fragments/left-sidebar :: left-sidebar"></div>
+
+    <div class="dashboard-wrapper">
+
+        <div class="dashboard-ecommerce">
+
+            <div class="container-fluid dashboard-content">
+
+                <div class="ecommerce-widget">
+
+                    <div class="row">
+
+                        <div class="col-lg-6 col-md-12">
+
+                            <section class="panel panel-transparent">
+                                <header class="panel-heading">
+                                    <h2 class="panel-title">Project Create</h2>
+                                </header>
+
+                                <div class="panel-body">
+
+                                    <!-- ------------------------FORM START----------------------------- -->
+                                    <form class="needs-validation" novalidate>
+                                        <div class="row">
+                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
+                                                <div class="form-group">
+                                                    <label for="first-name" class="col-form-label">First Name</label>
+                                                    <input id="first-name" type="text" placeholder="First name"
+                                                           class="form-control" required>
+                                                    <div class="invalid-feedback">
+                                                        Please enter user name.
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
+                                                <div class="form-group">
+                                                    <label for="last-name" class="col-form-label">Last Name</label>
+                                                    <input id="last-name" type="text" placeholder="Last name" class="form-control" required>
+                                                    <div class="invalid-feedback">
+                                                        Please enter last name.
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
+                                                <div class="form-group">
+                                                    <label for="email-address" class="col-form-label">Email address</label>
+                                                    <input id="email-address" type="text" placeholder="Email address"
+                                                           class="form-control" required>
+                                                    <div class="invalid-feedback">
+                                                        Please enter email.
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
+                                                <div class="form-group">
+                                                    <label for="mobile-number" class="col-form-label">Mobile Number</label>
+                                                    <input id="mobile-number" type="text" placeholder="Mobile number"
+                                                           class="form-control" required pattern="^\d{10}$">
+                                                    <div class="invalid-feedback">
+                                                        Please enter 10 digit mobile number.
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
+                                                <div class="form-group">
+                                                    <label for="password" class="col-form-label">Password</label>
+                                                    <input id="password" type="password" placeholder="Password"
+                                                           class="form-control" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{4,}"  required>
+                                                    <div class="invalid-feedback">
+                                                        Must contain at least one number and one uppercase and lowercase letter, and at least 4 or more characters
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
+                                                <div class="form-group">
+                                                    <label for="password-conf" class="col-form-label">Password Confirmation</label>
+                                                    <input id="password-conf" type="password" placeholder="Confirm your password"
+                                                           class="form-control" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{4,}"  required>
+                                                    <div class="invalid-feedback">
+                                                        you need to confirm your password    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+
+                                        <div class="row">
+                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
+                                                <div class="form-group">
+                                                    <h5>Gender</h5>
+                                                    <label class="custom-control custom-radio custom-control-inline">
+                                                        <input type="radio" name="radio-inline" checked=""
+                                                               class="custom-control-input"><span
+                                                            class="custom-control-label">Male</span>
+                                                    </label>
+                                                    <label class="custom-control custom-radio custom-control-inline">
+                                                        <input type="radio" name="radio-inline" class="custom-control-input"><span
+                                                            class="custom-control-label">Female</span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
+                                                <div class="form-group">
+                                                    <label for="input-select">Role</label>
+                                                    <select class="form-control" id="input-select">
+                                                        <option>Select</option>
+                                                        <option value="manager">Manager</option>
+                                                        <option value="admin">Admin</option>
+                                                        <option value="employee">Employee</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                                <div class="float-right">
+                                                    <button type="submit" class="btn btn-success rounded">Save</button>
+                                                    <div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+
+                                    </form>
+                                    <!-- ------------------------FORM END----------------------------- -->
+
+
+
+                                </div>
+
+                            </section>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- ------------------------TABLE START----------------------------- -->
+
+                <div class="row">
+                    <div class="col-lg-12 col-md-12">
+                        <div class="col-md-12">
+                            <section class="panel">
+                                <header class="panel-heading">
+                                    <h2 class="panel-title">User List</h2>
+                                </header>
+                                <div class="panel-body">
+                                    <div class="table-responsive">
+                                        <table class="table table-striped">
+                                            <thead>
+                                            <tr>
+
+                                                <th scope="col">Name</th>
+                                                <th scope="col">E-Mail</th>
+                                                <th scope="col">Gender</th>
+                                                <th scope="col">Phone</th>
+                                                <th scope="col">Role</th>
+                                                <th scope="col">Action</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+
+                                                <td>Mark</td>
+                                                <td>@mdo</td>
+                                                <td>Male</td>
+                                                <td>000000000</td>
+                                                <td>Employee</td>
+                                                <td>
+                                                    <a href="">
+                                                        <button type="button" class="btn btn-warning btn-sm">Update</button>
+                                                    </a>
+                                                    <a href="">
+                                                        <button type="button" class="btn btn-secondary btn-sm">Delete</button>
+                                                    </a>
+
+                                                </td>
+
+                                            </tr>
+                                            <tr>
+
+                                                <td>Mark</td>
+                                                <td>@mdo</td>
+                                                <td>Male</td>
+                                                <td>000000000</td>
+                                                <td>Employee</td>
+                                                <td>
+                                                    <a href="">
+                                                        <button type="button" class="btn btn-warning btn-sm">Update</button>
+                                                    </a>
+                                                    <a href="">
+                                                        <button type="button" class="btn btn-secondary btn-sm">Delete</button>
+                                                    </a>
+
+                                                </td>
+                                            </tr>
+                                            <tr>
+
+                                                <td>Mark</td>
+                                                <td>@mdo</td>
+                                                <td>Male</td>
+                                                <td>000000000</td>
+                                                <td>Employee</td>
+                                                <td>
+                                                    <a href="">
+                                                        <button type="button" class="btn btn-warning btn-sm">Update</button>
+                                                    </a>
+                                                    <a href="">
+                                                        <button type="button" class="btn btn-secondary btn-sm">Delete</button>
+                                                    </a>
+
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ------------------------TABLE END----------------------------- -->
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div th:replace="/fragments/footer :: footer"></div>
+
+</div>
+
+<div th:replace="/fragments/javascript :: js"></div>
+
+</body>
+
+</html>
