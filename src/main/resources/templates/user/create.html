@@ -32,12 +32,12 @@
                                 <div class="panel-body">
 
                                     <!-- ------------------------FORM START----------------------------- -->
-                                    <form class="needs-validation" novalidate>
+                                    <form class="needs-validation" novalidate th:action="@{/user/create}" method="post" th:object="${user}">
                                         <div class="row">
                                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
                                                 <div class="form-group">
                                                     <label for="first-name" class="col-form-label">First Name</label>
-                                                    <input id="first-name" type="text" placeholder="First name"
+                                                    <input id="first-name" type="text" placeholder="First name" th:field="*{firstname}"
                                                            class="form-control" required>
                                                     <div class="invalid-feedback">
                                                         Please enter first name.
@@ -47,7 +47,7 @@
                                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
                                                 <div class="form-group">
                                                     <label for="last-name" class="col-form-label">Last Name</label>
-                                                    <input id="last-name" type="text" placeholder="Last name" class="form-control" required>
+                                                    <input id="last-name" type="text" placeholder="Last name" th:field="*{lastname}" class="form-control" required>
                                                     <div class="invalid-feedback">
                                                         Please enter last name.
                                                     </div>
@@ -60,7 +60,7 @@
                                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
                                                 <div class="form-group">
                                                     <label for="email-address" class="col-form-label">Email address</label>
-                                                    <input id="email-address" type="text" placeholder="Email address"
+                                                    <input id="email-address" type="text" placeholder="Email address" th:field="*{username}"
                                                            class="form-control" required>
                                                     <div class="invalid-feedback">
                                                         Please enter email.
@@ -70,7 +70,7 @@
                                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
                                                 <div class="form-group">
                                                     <label for="mobile-number" class="col-form-label">Mobile Number</label>
-                                                    <input id="mobile-number" type="tel" placeholder="Mobile number"
+                                                    <input id="mobile-number" type="tel" placeholder="Mobile number" th:field="*{phone}"
                                                            class="form-control" required pattern="^\d{10}$">
                                                     <div class="invalid-feedback">
                                                         Please enter 10 digit mobile number.
@@ -84,7 +84,7 @@
                                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
                                                 <div class="form-group">
                                                     <label for="password" class="col-form-label">Password</label>
-                                                    <input id="password" type="password" placeholder="Password"
+                                                    <input id="password" type="password" placeholder="Password" th:field="*{passWord}"
                                                            class="form-control" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{4,}"  required>
                                                     <div class="invalid-feedback">
                                                         Must contain at least one number and one uppercase and lowercase letter, and at least 4 or more characters
@@ -94,7 +94,7 @@
                                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
                                                 <div class="form-group">
                                                     <label for="password-conf" class="col-form-label">Password Confirmation</label>
-                                                    <input id="password-conf" type="password" placeholder="Confirm your password"
+                                                    <input id="password-conf" type="password" placeholder="Confirm your password" th:field="*{passWord}"
                                                            class="form-control" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{4,}"  required>
                                                     <div class="invalid-feedback">
                                                         you need to confirm your password    </div>
@@ -109,24 +109,23 @@
                                                 <div class="form-group">
                                                     <h5>Gender</h5>
                                                     <label class="custom-control custom-radio custom-control-inline">
-                                                        <input type="radio" name="radio-inline" checked=""
+                                                        <input type="radio" name="radio-inline" checked="" th:field="*{gender}" th:value="Male"
                                                                class="custom-control-input"><span
                                                             class="custom-control-label">Male</span>
                                                     </label>
                                                     <label class="custom-control custom-radio custom-control-inline">
-                                                        <input type="radio" name="radio-inline" class="custom-control-input"><span
+                                                        <input type="radio" name="radio-inline" th:field="*{gender}" th:value="Female" class="custom-control-input"><span
                                                             class="custom-control-label">Female</span>
                                                     </label>
                                                 </div>
                                             </div>
                                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
                                                 <div class="form-group">
-                                                    <label for="input-select">Role</label>
-                                                    <select class="form-control" id="input-select">
-                                                        <option>Select</option>
-                                                        <option value="manager">Manager</option>
-                                                        <option value="admin">Admin</option>
-                                                        <option value="employee">Employee</option>
+                                                    <label >Choose a Role</label>
+                                                    <select name="roleid" id="roleid" th:field="*{role}" class="custom select" required="required">
+                                                        <option th:value=" ''" th:text="Select"></option>
+                                                        <option th:each="role : ${}" ></option>
+
                                                     </select>
                                                 </div>
                                             </div>
