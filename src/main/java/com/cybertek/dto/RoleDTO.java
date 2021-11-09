@@ -9,6 +9,8 @@ import lombok.Setter;
 @AllArgsConstructor
 @Getter
 @Setter
+
+// Role Data Transfer Object
 public class RoleDTO {
     private Long id;
     private String description;

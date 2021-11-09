@@ -11,6 +11,8 @@ import lombok.Setter;
 @AllArgsConstructor
 @Getter
 @Setter
+
+// User Data Transfer Object
 public class UserDTO {
     private String firstName;
     private String lastName;
