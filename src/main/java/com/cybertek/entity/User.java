@@ -22,6 +22,7 @@ public class User extends BaseEntity {
     private Role role;
     private Gender gender;
 
+    // super class constructor
     public User(Long id, LocalDateTime insertDateTime, Long insertUserId, LocalDateTime lastUpdateDateTime, Long lastUpdateUserId, String firstName, String lastName, String userName, String password, boolean enabled, String phone, Role role, Gender gender) {
         super(id, insertDateTime, insertUserId, lastUpdateDateTime, lastUpdateUserId);
         this.firstName = firstName;
