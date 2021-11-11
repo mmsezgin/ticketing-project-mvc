@@ -37,7 +37,7 @@
                                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
                                                 <div class="form-group">
                                                     <label for="first-name" class="col-form-label">First Name</label>
-                                                    <input id="first-name" type="text" placeholder="First name" th:field="*{firstname}"
+                                                    <input id="first-name" type="text" placeholder="First name" th:field="*{firstName}"
                                                            class="form-control" required>
                                                     <div class="invalid-feedback">
                                                         Please enter first name.
@@ -47,7 +47,7 @@
                                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
                                                 <div class="form-group">
                                                     <label for="last-name" class="col-form-label">Last Name</label>
-                                                    <input id="last-name" type="text" placeholder="Last name" th:field="*{lastname}" class="form-control" required>
+                                                    <input id="last-name" type="text" placeholder="Last name" th:field="*{lastName}" class="form-control" required>
                                                     <div class="invalid-feedback">
                                                         Please enter last name.
                                                     </div>
@@ -60,7 +60,7 @@
                                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
                                                 <div class="form-group">
                                                     <label for="email-address" class="col-form-label">Email address</label>
-                                                    <input id="email-address" type="text" placeholder="Email address" th:field="*{username}"
+                                                    <input id="email-address" type="text" placeholder="Email address" th:field="*{userName}"
                                                            class="form-control" required>
                                                     <div class="invalid-feedback">
                                                         Please enter email.
@@ -84,7 +84,7 @@
                                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
                                                 <div class="form-group">
                                                     <label for="password" class="col-form-label">Password</label>
-                                                    <input id="password" type="password" placeholder="Password" th:field="*{passWord}"
+                                                    <input id="password" type="password" placeholder="Password" th:field="*{password}"
                                                            class="form-control" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{4,}"  required>
                                                     <div class="invalid-feedback">
                                                         Must contain at least one number and one uppercase and lowercase letter, and at least 4 or more characters
@@ -94,7 +94,7 @@
                                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
                                                 <div class="form-group">
                                                     <label for="password-conf" class="col-form-label">Password Confirmation</label>
-                                                    <input id="password-conf" type="password" placeholder="Confirm your password" th:field="*{passWord}"
+                                                    <input id="password-conf" type="password" placeholder="Confirm your password" th:field="*{password}"
                                                            class="form-control" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{4,}"  required>
                                                     <div class="invalid-feedback">
                                                         you need to confirm your password    </div>
@@ -122,9 +122,9 @@
                                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
                                                 <div class="form-group">
                                                     <label >Choose a Role</label>
-                                                    <select name="roleid" id="roleid" th:field="*{role}" class="custom select" required="required">
+                                                    <select  th:field="*{role}" class="custom select" required="required">
                                                         <option th:value=" ''" th:text="Select"></option>
-                                                        <option th:each="role : ${}" ></option>
+                                                        <option th:each="role : ${roles}" th:value="${role.id}" th:text="${role.description}"></option>
 
                                                     </select>
                                                 </div>
@@ -177,7 +177,7 @@
                                             <tr>
 
                                                 <th scope="col">Name</th>
-                                                <th scope="col">E-Mail</th>
+                                                <th scope="col">E-Mail(username)</th>
                                                 <th scope="col">Gender</th>
                                                 <th scope="col">Phone</th>
                                                 <th scope="col">Role</th>
@@ -185,18 +185,18 @@
                                             </tr>
                                             </thead>
                                             <tbody>
-                                            <tr>
+                                            <tr th: th:each="user: ${users}">
 
-                                                <td>Mark</td>
-                                                <td>@mdo</td>
-                                                <td>Male</td>
-                                                <td>000000000</td>
-                                                <td>Employee</td>
-                                                <td>
+                                                <td th:text="${user.firstName + ' ' + user.lastName}"></td>
+                                                <td th:text="${user.userName}"></td>
+                                                <td th:text="${user.gender}"></td>
+                                                <td th:text="${user.phone}"></td>
+                                                <td th:text="${user.role.description}" ></td>
+                                                <td> class="actions">
                                                     <a href="">
                                                         <button type="button" class="btn btn-warning btn-sm">Update</button>
                                                     </a>
-                                                    <a href="">
+                                                    <a href=""> class="delete-row"
                                                         <button type="button" class="btn btn-secondary btn-sm">Delete</button>
                                                     </a>
 
