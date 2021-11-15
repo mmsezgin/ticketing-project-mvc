@@ -35,13 +35,8 @@ public class UserController {
         //Save the entered user
         userService.save(user);
 
-        //after insertion a fresh empty page wanted, so new UserDTO() needed.
-        model.addAttribute("user", new UserDTO());
-        model.addAttribute("roles", roleService.findAll());
-        model.addAttribute("users", userService.findAll());
-
-        //Since we want to see same user create page, return user create page.
-        return "/user/create";
+        //Since we want to see same user create page, return user create page by redirecting.
+        return "redirect:/user/create";
     }
 
     @GetMapping("/update/{username}")
@@ -51,9 +46,17 @@ public class UserController {
         model.addAttribute("roles", roleService.findAll());
 
         return "/user/update";
-
-
-
     }
 
+    @PostMapping("/update/{username}")
+    public String updateUser(@PathVariable("username") String username, UserDTO user, Model model){
+
+        userService.update(user);
+        return "redirect:/user/create";
+    }
+    @GetMapping("/delete/{username}")
+    public String deleteUser(@PathVariable("username") String username){
+        userService.deleteById(username);
+        return "redirect:/user/create";
+    }
 }
