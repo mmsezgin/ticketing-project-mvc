@@ -8,6 +8,7 @@ import java.util.List;
 public interface UserService extends CrudService<UserDTO, String>{
     //Describe business logic here
     // Get, save, delete all users etc.
-
+    List<UserDTO> findManagers();
+    List<UserDTO> findEmployees();
 
 }
