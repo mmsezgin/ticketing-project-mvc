@@ -29,8 +29,8 @@ public abstract class AbstractMapService<T,ID> {
         map.entrySet().removeIf((entry -> entry.getValue().equals(object) ));
     }
     void update (ID id, T object){
-        //first delete that object
-        map.entrySet().removeIf((entry -> entry.getValue().equals(object) ));
+        //first delete that object. Below part not needed.
+//        map.entrySet().removeIf((entry -> entry.getValue().equals(object) ));
         //add the new one
         map.put(id, object);
 
