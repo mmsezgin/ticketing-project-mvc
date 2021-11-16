@@ -68,7 +68,7 @@ public class TaskController {
         model.addAttribute("employees", userService.findEmployees());
         model.addAttribute("tasks", taskService.findAll());
 
-        return "task/update"
+        return "task/update";
     }
 
     @PostMapping("/update/{id}")

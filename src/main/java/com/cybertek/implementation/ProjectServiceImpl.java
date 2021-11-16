@@ -18,6 +18,7 @@ public class ProjectServiceImpl extends AbstractMapService<ProjectDTO,String> im
     public ProjectDTO save(ProjectDTO object) {
         return super.save(object.getProjectCode(),object);
     }
+
     @Override
     public void update(ProjectDTO object) {
         ProjectDTO newProject = findById(object.getProjectCode());
