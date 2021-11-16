@@ -1,4 +1,8 @@
 package com.cybertek.service;
 
-public class TaskService {
+import com.cybertek.dto.TaskDTO;
+
+public interface TaskService extends CrudService<TaskDTO, Long> {
+
+
 }
