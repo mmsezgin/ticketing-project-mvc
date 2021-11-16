@@ -72,7 +72,7 @@ public class TaskController {
     }
 
     @PostMapping("/update/{id}")
-    public String updateTask(TaskDTO task, Model model){
+    public String updateTask(TaskDTO task){
 
         taskService.update(task);
 
