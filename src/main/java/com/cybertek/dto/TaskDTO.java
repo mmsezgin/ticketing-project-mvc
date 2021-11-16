@@ -7,9 +7,9 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDate;
+import java.util.UUID;
 
 @NoArgsConstructor
-@AllArgsConstructor
 @Getter
 @Setter
 public class TaskDTO {
@@ -22,4 +22,15 @@ public class TaskDTO {
     private Status taskStatus;
     private LocalDate assignedDate;
 
+    public TaskDTO(ProjectDTO project, UserDTO assignedEmployee, String taskSubject, String taskDetail, Status taskStatus, LocalDate assignedDate) {
+        this.project = project;
+        this.assignedEmployee = assignedEmployee;
+        this.taskSubject = taskSubject;
+        this.taskDetail = taskDetail;
+        this.taskStatus = taskStatus;
+        this.assignedDate = assignedDate;
+
+        //Generate primary key for us
+        this.id= UUID.randomUUID().getMostSignificantBits();
+    }
 }
